@@ -1,0 +1,139 @@
+mport java.util.Scanner;
+class Bank{
+	static String name;
+	static String address;
+	static long contact;
+	static long adhar;
+	static String pancard;
+	static double balence;
+	static int pin;
+public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	welcomeLoop:
+	for (; ; ) {
+		System.out.println("\n **** WELCOME ****");
+		System.out.println("*-* LAXMI CHIT FUND *-*");
+		System.out.println("1.Create new account \n2. Login \n");
+		System.out.println("Enter your Responce : ");
+		int resp = sc.nextInt();
+
+		switch(resp)
+		{
+			case 1: {
+				if (name != null) {
+					System.out.println("Account already exist!");
+					continue;
+				}
+				System.out.println("account creation page");
+				System.out.println("Name : ");
+				name = new Scanner(System.in).nextLine();
+				System.out.println("Address : ");
+				address = new Scanner(System.in).nextLine();
+				System.out.println("Contact No. : ");
+				contact = new Scanner(System.in).nextLong();
+				System.out.println("AADHAR : ");
+				adhar = new Scanner(System.in).nextLong();
+				System.out.println("PanCard : ");
+				pancard = new Scanner(System.in).nextLine();
+				System.out.println("Enter the amount : ");
+				balence = new Scanner(System.in).nextDouble();
+				System.out.println("pin : ");
+				pin = new Scanner(System.in).nextInt();
+				System.out.println("\n ** ACCOUNT CREATED SUCCSESFULLY **");
+				break;
+		    }
+			case 2: {
+				if (name == null) {
+					System.out.println("CREATE YOUR ACCOUNT FIRST!\n");
+					continue;	
+				}
+				System.out.println("Login Module");
+				System.out.println("Enter your Contact no. : ");
+				long userCont = new Scanner(System.in).nextLong();
+				System.out.println("enter the pin : ");
+				int userPin = new Scanner(System.in).nextInt();
+
+				if (contact==userCont && pin ==userPin) {
+					System.out.println("Accounnt Login Succesfull\n");
+
+					features:
+					for (; ; ) {
+						System.out.println("** FEATURE MODULE **");
+						System.out.println("1.DIPOSITE \n2.WITHDROW \n3.CHECK BALENCE \n4.LOGOUT");
+						System.out.println("enter your option : ");
+						int opt = sc.nextInt();
+
+						switch(opt){
+							case 1:{
+								System.out.println("\n DEPOSITE ACOUNT MODULE");
+								System.out.println("Enter the amount : ");
+								double dept = new Scanner(System.in).nextDouble();
+								balence += dept;
+								System.out.println("\n AMOUNT IS DEBITED SUCCESFULLY");
+								break;
+						    }
+							case 2:{
+								System.out.println("\n WITHDROW AMOUNT MODULE");
+								System.out.println("Enter the amount :");
+								double wdramt = new Scanner(System.in).nextDouble();
+								System.out.println("Enter the pin");
+								int pin2 = new Scanner(System.in).nextInt();
+								if (pin == pin2) {
+									if (wdramt<= balence) {
+										balence -= wdramt;
+										System.out.println("AMOUNT DEBITED SUCCESFULLY");		
+									}
+									else{
+										System.out.println("INSUFFICIANT BALENCE");
+									}
+									}
+									else{
+										System.out.println("INVALID PIN");
+									}
+
+								break;
+							}
+						    case 3:{
+						    	System.out.println("CHECK BALENCE MODULE");
+						    	System.out.println("Enter the pin: ");
+						    	int pin2 = new Scanner(System.in).nextInt();
+						    	if (pin == pin2) {
+						    		System.out.println("your balence is :"+ balence);	
+						    	}
+						    	else{
+						    		System.out.println("INVALID PIN ENTERD!");
+						    	}
+						    	
+
+						    	break;
+						    }
+						    case 4:{
+						    	System.out.println("Thank You ! Visit Again");
+						    	continue welcomeLoop;
+						    }
+						    default:{
+						    	System.out.println("INVALID RESPONSE!");
+
+						    }
+						}
+
+						
+					}
+
+				}
+				else{
+						System.out.println("INVALID CRED");
+					}
+				break;
+
+		    }
+			default:{
+
+				System.out.println("INVALID RESPONCE");
+
+		    }
+		}
+		
+	}
+}
+}

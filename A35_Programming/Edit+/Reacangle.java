@@ -1,0 +1,18 @@
+import java.util.Scanner;
+class Rectangle 
+{
+	public static void main(String[] args) 
+	{ 
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the width: ");
+		System.out.println("Enter the height: ");
+		double width = sc.nextDouble();
+		double height = sc.nextDouble();
+		
+		final double AREA = width * height;
+		final double PERIMETER = 2*(width+height);
+		
+		System.out.printf("the area is %.2f: ",AREA);
+		System.out.printf("the Perimeter is % .2f: " ,PERIMETER);
+	}
+}

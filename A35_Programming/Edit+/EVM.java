@@ -1,0 +1,65 @@
+import java.util.Scanner;
+class EVM
+{
+	static int bjp,aap,cong,mns,nota;
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the population in your area: ");
+		int population = sc.nextInt();
+		
+		for (int i=1;i<= population ; i++)
+		{
+		System.out.println("\n*****WELLCOME****");
+		System.out.println("\n 1.BJP \n 2.AAP \n 3.CONG \n 4.MNS \n 5.NOTA");
+		System.out.println("Enter your responce : ");
+		String resp = sc.next().toUpperCase();
+		
+		if (resp.equals("BJP")){ 
+			bjp++;
+		    System.out.println("you have voted for bjp");
+		}
+		else if( resp.equals("AAP")){
+			aap++;
+		    System.out.println("you have voted for AAP");
+		}
+		else if(resp.equals("CONG")){
+			cong++;
+		    System.out.println("you have voted for CONG");
+		}
+		else if(resp.equals("MNS")){
+			mns++;
+		    System.out.println("you have voted for mns");
+		} 
+		else if(resp.equals("NOTA")){
+			nota++;
+			System.out.println("you dosent voted");
+		}else{
+			System.out.println("your responce is invalid");
+			i--;
+		}
+		}
+		
+	System.out.println("bjp : "+ bjp);
+	System.out.println("cong : "+cong);
+	System.out.println("mns : "+mns);
+	System.out.println("aap : "+aap);
+	System.out.println("nota : "+nota);
+	
+	if (bjp>=cong && bjp >= aap && bjp >= mns && bjp >= nota)
+	{
+		System.out.println("BJP wont election by "+bjp +"votes");
+	} else if (aap>=cong && aap >= bjp && aap >= mns && aap >= nota)
+	{
+		System.out.println("AAP wont election by "+aap +"votes");
+	}else if (cong>=bjp && cong >= aap && cong >= mns && cong >= nota)
+	{
+		System.out.println("CONG wont election by "+cong +"votes");
+	}else if (mns>=cong && mns >= aap && mns >= bjp && mns >= nota)
+	{
+		System.out.println("MNS wont election by "+mns +"votes");
+	}else
+		System.out.println("no one won the election ");
+		
+	}
+}

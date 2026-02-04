@@ -1,0 +1,10 @@
+class narrowing_int
+{
+	public static void main(String[] args) 
+	{
+		
+		
+		int i = (int)2147483650;
+		System.out.println(i);
+}
+}
